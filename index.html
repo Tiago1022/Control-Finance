@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tiago finanças$</title>
+
+        <link rel="stylesheet" href="style.css">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;1,300;1,700&display=swap" rel="stylesheet">
+
+    </head>
+    <body>
+
+        <header>
+            <svg width="200" heigth="200" viewBox="0 0 40 60">
+        <polygon class="triangle" fill="none" stroke="#fff" stroke-width="1" points="16,1 32,32 1,32"/>
+        <text class="finance" x="0" y="45" fill="#fff">Finanças $</text>
+        <style >
+            .triangle {
+            stroke-dasharray: 17;
+            animation: dash 2.5s cubic-bezier(0.35, 0.04, 0.63, 0.95) infinite;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 136;
+            }
+        }
+     
+        .finance {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 7px;
+            animation: blink .9s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        </style>
+    </svg>
+        </header>
+
+        <main class="container">
+
+            <section id="balance">
+                <h2 class="sr-only">Balanço</h2>
+
+                <div class="card">
+                    <h3>
+                        <span>Entradas</span> <!--span - mantêm o elemento em linha-->
+                        <img src="./assets/income.svg" alt="Image de entradas">
+                    </h3>
+                    <p id="incomeDisplay"></p>
+                </div>
+
+                <div class="card">
+                    <h3>
+                        <span>Saídas</span> 
+                        <img src="./assets/expense.svg" alt="Image de saída">
+                    </h3>
+                    <p id="expenseDisplay"></p>
+                </div>
+
+                <div class="card total">
+                    <h3>
+                        <span>total</span> 
+                        <img src="./assets/total.svg" alt="Image de total">
+                    </h3>
+                    <p id="totalDisplay"></p>
+                </div>
+
+            </section>
+
+            <section id="transaction">
+                <h2 class="sr-only">Transações</h2>
+
+                <a href="#"
+                onclick="Modal.open()"
+                class="button new">+ Nova Transação</a>
+
+                <table id="data-table">
+                    <!--Tabela -->
+                    <thead>
+                        <!--Cabeçalho da Tabela -->
+                        <tr>
+                            <!--Linha -->
+                            <th>Descrição</th>
+                            <!--Conteúdo da Linha -->
+                            <th>Valor</th>
+                            <th>Data</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--Corpo da Tabela -->
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+
+        <div class="modal-overlay ">
+            <div class="modal">
+                <div class="modal-content">
+                    <div class="form">
+                        <h2>Nova transação</h2>
+                        <form action="" onsubmit="Form.submit(event)">
+                            <div class="input-group">
+                                <label
+                                    class="sr-only" 
+                                    for="description">Descrição</label>
+                                <input 
+                                    type="text" 
+                                    id="description"
+                                    name="description"
+                                    placeholder="Descrição"
+                                />
+                            </div>
+
+
+                            <div class="input-group">
+                                <label
+                                    class="sr-only" 
+                                    for="amount">Valor</label>
+                                <input 
+                                    type="number" 
+                                    step="0.01"
+                                    id="amount"
+                                    name="amount"
+                                    placeholder="0,00"
+                                />
+                                <small classhelp>Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais</small>
+                            </div>
+
+                            <div class="input-group">
+                                <label
+                                    class="sr-only" 
+                                    for="date">Data</label>
+                                <input 
+                                    type="date" 
+                                    id="date"
+                                    name="date"
+                                    placeholder="01/01/2021"
+                                />
+                            </div>
+
+                            <div class="input-group actions">
+                                <a
+                                onclick="Modal.close()" 
+                                href="#" class="button cancel">Cancelar</a>
+                                <button>Salvar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+        <footer>
+            <p>Tiago Finanças $</p>
+        </footer>
+
+        <script src="./scripts.js">
+           
+        </script>
+
+        
+
+    </body>
+</html>
